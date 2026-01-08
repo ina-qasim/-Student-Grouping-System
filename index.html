@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Grouping</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+
+    <div class="logo glow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4f8cff"/>
+            <stop offset="100%" stop-color="#22d3ee"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="64" height="64" rx="16" fill="#0f172a"/>
+        <rect x="2" y="2" width="60" height="60" rx="14"
+              fill="rgba(255,255,255,0.04)"/>
+
+        <g stroke="url(#g)" stroke-width="3" fill="none"
+           stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="23" r="7"/>
+          <path d="M18 48v-1a14 14 0 0 1 28 0v1"/>
+          <circle cx="16" cy="27" r="5"/>
+          <path d="M8 48v-1a10 10 0 0 1 14-7"/>
+          <circle cx="48" cy="27" r="5"/>
+          <path d="M56 48v-1a10 10 0 0 0-14-7"/>
+        </g>
+      </svg>
+    </div>
+
+    <div>
+      <h1>Student Grouping</h1>
+      <p>Divide students into groups for projects, presentations, and exams</p>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- LEFT PANEL -->
+  <section class="card formCard">
+    <div class="formTitle">Create Groups</div>
+
+    <label for="studentsInput">Students</label>
+    <textarea id="studentsInput" placeholder="Enter one student per line..."></textarea>
+
+    <div class="metaRow">
+      <span id="countText">0 students entered</span>
+      <button id="shuffleBtn" class="shuffleBtn" type="button">Shuffle</button>
+    </div>
+
+    <div class="toggle">
+      <button id="modeNumBtn" class="active" type="button">By Number of Groups</button>
+      <button id="modeSizeBtn" type="button">By Group Size</button>
+    </div>
+
+    <div class="field" id="numGroupsField">
+      <input id="numGroupsInput" type="number" min="1" placeholder="e.g., 3">
+    </div>
+
+    <div class="field" id="sizeGroupsField" style="display:none">
+      <input id="groupSizeInput" type="number" min="1" placeholder="e.g., 5">
+    </div>
+
+    <button class="primaryBtn" id="createBtn" type="button">Create Groups</button>
+    <div class="error" id="errorBox"></div>
+  </section>
+
+  <!-- RIGHT PANEL -->
+  <section class="right">
+    <div class="card emptyState" id="emptyState">
+      <div class="emptyIcon"></div>
+      <h3>No groups created yet</h3>
+      <p>Fill in the form to create student groups</p>
+    </div>
+
+    <div class="topHint" id="topHint"></div>
+
+    <!-- 🔍 SEARCH INPUT (ADDED) -->
+    <input
+      type="text"
+      id="searchInput"
+      class="searchInput"
+      placeholder="Search student name..."
+    />
+
+    <div class="groupsGrid" id="groupsGrid" style="display:none"></div>
+  </section>
+
+</main>
+
+<script src="./JavaScript/script.js"></script>
+</body>
+</html>

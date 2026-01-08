@@ -1,0 +1,636 @@
+/* =========================================================
+   SOFT DARK THEME (dark but not too dark) – FULL style.css
+   Consistent UI across ALL sections with subtle variations
+   ========================================================= */
+
+/* ---------- Theme Tokens ---------- */
+:root{
+  /* Soft dark background */
+  --bg: #0f172a;          /* main background (soft dark navy) */
+  --bg-2: #111c33;        /* subtle secondary background */
+
+  /* Surfaces */
+  --panel: rgba(255,255,255,.06);
+  --panel-2: rgba(255,255,255,.08);
+  --panel-3: rgba(255,255,255,.10);
+
+  /* Text */
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.65);
+
+  /* Lines */
+  --line: rgba(255,255,255,.10);
+  --line-2: rgba(255,255,255,.14);
+
+  /* Brand */
+  --brand: #4f8cff;       /* modern blue */
+  --brand-2: #3a73e6;
+
+  /* Accent glow (subtle) */
+  --glow: 0 0 0 4px rgba(79,140,255,.20);
+
+  /* Shadows */
+  --shadow-soft: 0 12px 28px rgba(0,0,0,.30);
+  --shadow-strong: 0 18px 46px rgba(0,0,0,.40);
+
+  /* Radius */
+  --radius: 18px;
+  --radius-sm: 14px;
+}
+
+/* ---------- Global Reset ---------- */
+*{ box-sizing:border-box; }
+html, body{
+  height:100%;
+  margin:0;
+  overflow-x:hidden; /* ✅ no horizontal scroll */
+}
+
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: var(--text);
+  background:
+    radial-gradient(900px 420px at 20% -10%, rgba(79,140,255,.20), transparent 55%),
+    radial-gradient(900px 420px at 85% -10%, rgba(34,211,238,.14), transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.topbar{
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 22px;
+  position: sticky;
+  top:0;
+  z-index:10;
+}
+
+.brand{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* ===============================
+   ICONS – SOFT DARK GLOW STYLE
+   =============================== */
+
+/* Logo container */
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+/* SVG inside logo */
+.logo svg {
+  width: 38px;
+  height: 38px;
+}
+
+/* Sexy glow */
+.glow {
+  filter:
+    drop-shadow(0 0 6px rgba(79,140,255,0.45))
+    drop-shadow(0 0 14px rgba(34,211,238,0.35));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Hover effect */
+.glow:hover {
+  transform: translateY(-1px) scale(1.04);
+  filter:
+    drop-shadow(0 0 8px rgba(79,140,255,0.7))
+    drop-shadow(0 0 18px rgba(34,211,238,0.6));
+}
+
+/* ===============================
+   INLINE ICONS (group cards etc.)
+   =============================== */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #7dd3fc; /* soft neon */
+}
+
+.icon.glow {
+  filter:
+    drop-shadow(0 0 4px rgba(125,211,252,0.6))
+    drop-shadow(0 0 10px rgba(34,211,238,0.4));
+}
+
+
+.logo svg{ width:22px; height:22px; }
+
+.brand h1{
+  margin:0;
+  font-size: 28px;
+  letter-spacing: -.4px;
+}
+
+.brand p{
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.wrap{
+  max-width:1200px;
+  margin: 20px auto 44px;
+  padding: 0 22px;
+  display:grid;
+  grid-template-columns: 380px 1fr;
+  gap: 18px;
+  align-items:start;
+}
+
+@media (max-width: 980px){
+  .wrap{ grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   COMMON CARD STYLE (same everywhere)
+   ========================================================= */
+.card{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+/* subtle hover for all cards */
+.card:hover{
+  border-color: var(--line-2);
+}
+
+/* =========================================================
+   LEFT PANEL (FORM)
+   ========================================================= */
+
+
+
+   /* ===============================
+   SEARCH INPUT
+   =============================== */
+
+.searchInput{
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  font-size: 14px;
+  transition: .15s ease;
+}
+
+.searchInput::placeholder{
+  color: rgba(255,255,255,.45);
+}
+
+.searchInput:focus{
+  outline:none;
+  border-color: rgba(79,140,255,.45);
+  box-shadow: var(--glow);
+  background: rgba(255,255,255,.06);
+}
+
+.formCard{ padding: 18px; }
+
+.formTitle{
+  font-size: 18px;
+  font-weight: 900;
+  margin: 4px 0 14px;
+  letter-spacing: -.2px;
+}
+
+label{
+  display:block;
+  margin: 12px 0 8px;
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(255,255,255,.90);
+}
+
+textarea{
+  width: 100%;
+  min-height: 170px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.55;
+  resize: vertical;
+  transition: .15s ease;
+}
+
+textarea::placeholder{ color: rgba(255,255,255,.45); }
+
+textarea:focus{
+  outline:none;
+  border-color: rgba(79,140,255,.45);
+  box-shadow: var(--glow);
+  background: rgba(255,255,255,.06);
+}
+
+.metaRow{
+  margin-top: 10px;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* buttons base */
+button{
+  font-family: inherit;
+}
+
+.shuffleBtn{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.88);
+  padding: 9px 11px;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor:pointer;
+  transition: .15s ease;
+}
+
+.shuffleBtn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+  box-shadow: 0 12px 22px rgba(0,0,0,.25);
+}
+
+.toggle{
+  margin-top: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--line);
+  padding: 6px;
+  border-radius: 14px;
+  display:flex;
+  gap: 6px;
+}
+
+.toggle button{
+  flex:1;
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor:pointer;
+  transition: .15s ease;
+}
+
+.toggle button.active{
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 22px rgba(0,0,0,.22);
+}
+
+.field{ margin-top: 14px; }
+
+.fieldTitle{
+  font-weight: 900;
+  font-size: 13px;
+  margin: 10px 0 8px;
+  color: rgba(255,255,255,.90);
+}
+
+input[type="number"]{
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  font-size: 14px;
+  transition: .15s ease;
+}
+
+input[type="number"]::placeholder{ color: rgba(255,255,255,.45); }
+
+input[type="number"]:focus{
+  outline:none;
+  border-color: rgba(79,140,255,.45);
+  box-shadow: var(--glow);
+  background: rgba(255,255,255,.06);
+}
+
+.hint{
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* primary button */
+.primaryBtn{
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 0;
+  background: linear-gradient(135deg, var(--brand), #22d3ee);
+  color:#041225;
+  font-weight: 950;
+  cursor:pointer;
+  transition: .15s ease;
+  box-shadow: 0 18px 40px rgba(79,140,255,.18);
+}
+
+.primaryBtn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.primaryBtn:active{
+  transform: translateY(0);
+}
+
+.error{
+  display:none;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 80, 80, .10);
+  border: 1px solid rgba(255, 80, 80, .22);
+  color: rgba(255,255,255,.90);
+}
+
+/* =========================================================
+   RIGHT PANEL
+   ========================================================= */
+.right{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+.emptyState{
+  min-height: 360px;
+  padding: 26px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap: 10px;
+}
+
+.emptyIcon{
+  width: 74px;
+  height: 74px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.06);
+  border: 1px dashed rgba(255,255,255,.18);
+  display:grid;
+  place-items:center;
+  color: rgba(255,255,255,.75);
+}
+
+.emptyState h3{
+  margin: 0;
+  font-size: 22px;
+  letter-spacing:-.2px;
+}
+
+.emptyState p{
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===============================
+   STATUS / RESTORED INFO BANNER
+   =============================== */
+
+.topHint{
+  display:none;
+  padding: 12px 16px;
+  border-radius: 999px; /* pill style */
+  border: 1px solid rgba(79,140,255,.35);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(79,140,255,.18),
+      rgba(34,211,238,.14)
+    );
+
+  color: rgba(255,255,255,.92);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .1px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 12px 28px rgba(0,0,0,.25);
+
+  display:flex;
+  align-items:center;
+  gap: 10px;
+
+  pointer-events: none; /* 🔑 NOT interactive */
+}
+
+/* Subtle restore icon */
+.topHint::before{
+  content: "↺";
+  font-size: 14px;
+  opacity: .85;
+}
+
+
+/* =========================================================
+   GROUP GRID (no overflow)
+   ========================================================= */
+.groupsGrid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items:start;
+}
+
+/* =========================================================
+   GROUP CARDS (same theme, tiny difference)
+   ========================================================= */
+.groupCard{
+  padding: 14px;
+  background: var(--panel-2); /* slightly brighter than normal cards */
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow:hidden;
+
+  /* animation */
+  opacity: 0;
+  transform: translateY(12px);
+  animation: cardIn .45s cubic-bezier(.2,.8,.2,1) forwards;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+/* subtle color accent */
+.groupCard::before{
+  content:"";
+  position:absolute;
+  inset:-90px -70px auto auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%,
+    hsla(var(--hue, 210), 90%, 60%, .18),
+    transparent 62%);
+  pointer-events:none;
+}
+
+.groupCard:hover{
+  transform: translateY(-2px);
+  background: var(--panel-3);
+  border-color: var(--line-2);
+  box-shadow: var(--shadow-strong);
+}
+
+.groupHead{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.groupTitle{
+  margin:0;
+  font-size: 17px;
+  font-weight: 950;
+  color: rgba(255,255,255,.94);
+}
+
+/* badge same style as app */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 950;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.86);
+}
+
+.badge svg{
+  width: 16px;
+  height: 16px;
+  opacity: .9;
+}
+
+/* members */
+.members{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.memberRow{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: .15s ease;
+}
+
+.memberRow:hover{
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.12);
+}
+
+.num{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+  background: rgba(79,140,255,.18);
+  border: 1px solid rgba(79,140,255,.25);
+  color: rgba(255,255,255,.92);
+  font-weight: 950;
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+
+/* ===============================
+   REMOVE BUTTONS (NEW)
+   =============================== */
+
+.removeGroupBtn,
+.removeStudentBtn{
+  background: transparent;
+  border: none;
+  color: #f87171;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.removeGroupBtn:hover,
+.removeStudentBtn:hover{
+  color: #ef4444;
+  transform: scale(1.15);
+}
+
+.name{
+  color: rgba(255,255,255,.92);
+  font-weight: 850;
+  font-size: 14px;
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+@keyframes cardIn{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   NICE SCROLLBAR (optional)
+   ========================================================= */
+textarea::-webkit-scrollbar{ width: 10px; }
+textarea::-webkit-scrollbar-track{ background: transparent; }
+textarea::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+}
+textarea::-webkit-scrollbar-thumb:hover{
+  background: rgba(255,255,255,.28);
+}
