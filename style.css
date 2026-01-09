@@ -1,15 +1,9 @@
-/* =========================================================
-   SOFT DARK THEME (dark but not too dark) – FULL style.css
-   Consistent UI across ALL sections with subtle variations
-   ========================================================= */
 
-/* ---------- Theme Tokens ---------- */
+/* ---------- Themes  --------- */
 :root{
-  /* Soft dark background */
-  --bg: #0f172a;          /* main background (soft dark navy) */
-  --bg-2: #111c33;        /* subtle secondary background */
+  --bg: #0f172a;       
+  --bg-2: #111c33;       
 
-  /* Surfaces */
   --panel: rgba(255,255,255,.06);
   --panel-2: rgba(255,255,255,.08);
   --panel-3: rgba(255,255,255,.10);
@@ -23,7 +17,7 @@
   --line-2: rgba(255,255,255,.14);
 
   /* Brand */
-  --brand: #4f8cff;       /* modern blue */
+  --brand: #4f8cff;       
   --brand-2: #3a73e6;
 
   /* Accent glow (subtle) */
@@ -38,12 +32,11 @@
   --radius-sm: 14px;
 }
 
-/* ---------- Global Reset ---------- */
 *{ box-sizing:border-box; }
 html, body{
   height:100%;
   margin:0;
-  overflow-x:hidden; /* ✅ no horizontal scroll */
+  overflow-x:hidden; 
 }
 
 body{
@@ -57,7 +50,7 @@ body{
 }
 
 /* =========================================================
-   HEADER
+                             HEADER
    ========================================================= */
 .topbar{
   background: rgba(255,255,255,.04);
@@ -78,11 +71,9 @@ body{
   gap:14px;
 }
 
-/* ===============================
-   ICONS – SOFT DARK GLOW STYLE
-   =============================== */
 
 /* Logo container */
+
 .logo {
   width: 44px;
   height: 44px;
@@ -92,13 +83,12 @@ body{
   background: transparent;
 }
 
-/* SVG inside logo */
+/* SVG inside logoOO */
 .logo svg {
   width: 38px;
   height: 38px;
 }
 
-/* Sexy glow */
 .glow {
   filter:
     drop-shadow(0 0 6px rgba(79,140,255,0.45))
@@ -107,6 +97,7 @@ body{
 }
 
 /* Hover effect */
+
 .glow:hover {
   transform: translateY(-1px) scale(1.04);
   filter:
@@ -115,19 +106,21 @@ body{
 }
 
 /* ===============================
-   INLINE ICONS (group cards etc.)
+             ICONSSS
    =============================== */
 
 .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #7dd3fc; /* soft neon */
+  color: #7dd3fc;
 }
 
 .icon.glow {
   filter:
-    drop-shadow(0 0 4px rgba(125,211,252,0.6))
+    drop-shadow(
+      0 0 4px rgba(125,211,252,0.6)
+      )
     drop-shadow(0 0 10px rgba(34,211,238,0.4));
 }
 
@@ -163,9 +156,7 @@ body{
   .wrap{ grid-template-columns: 1fr; }
 }
 
-/* =========================================================
-   COMMON CARD STYLE (same everywhere)
-   ========================================================= */
+
 .card{
   background: var(--panel);
   border: 1px solid var(--line);
@@ -178,9 +169,7 @@ body{
   border-color: var(--line-2);
 }
 
-/* =========================================================
-   LEFT PANEL (FORM)
-   ========================================================= */
+
 
 
 
@@ -261,6 +250,7 @@ textarea:focus{
 }
 
 /* buttons base */
+
 button{
   font-family: inherit;
 }
@@ -346,6 +336,7 @@ input[type="number"]:focus{
 }
 
 /* primary button */
+
 .primaryBtn{
   width: 100%;
   margin-top: 14px;
@@ -423,7 +414,7 @@ input[type="number"]:focus{
 }
 
 /* ===============================
-   STATUS / RESTORED INFO BANNER
+     RESTORED INFO BANNERRR
    =============================== */
 
 .topHint{
@@ -452,20 +443,20 @@ input[type="number"]:focus{
   align-items:center;
   gap: 10px;
 
-  pointer-events: none; /* 🔑 NOT interactive */
+  pointer-events: none; 
 }
 
 /* Subtle restore icon */
+
 .topHint::before{
   content: "↺";
   font-size: 14px;
   opacity: .85;
+  margin-right: 20px;
 }
 
 
-/* =========================================================
-   GROUP GRID (no overflow)
-   ========================================================= */
+
 .groupsGrid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
