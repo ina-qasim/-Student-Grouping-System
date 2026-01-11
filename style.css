@@ -140,7 +140,7 @@ body{
 }
 
 /* =========================================================
-   LAYOUT
+                       LAYOUT
    ========================================================= */
 .wrap{
   max-width:1200px;
@@ -164,7 +164,6 @@ body{
   box-shadow: var(--shadow-soft);
 }
 
-/* subtle hover for all cards */
 .card:hover{
   border-color: var(--line-2);
 }
@@ -446,7 +445,6 @@ input[type="number"]:focus{
   pointer-events: none; 
 }
 
-/* Subtle restore icon */
 
 .topHint::before{
   content: "↺";
@@ -464,12 +462,10 @@ input[type="number"]:focus{
   align-items:start;
 }
 
-/* =========================================================
-   GROUP CARDS (same theme, tiny difference)
-   ========================================================= */
+
 .groupCard{
   padding: 14px;
-  background: var(--panel-2); /* slightly brighter than normal cards */
+  background: var(--panel-2); 
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
@@ -483,7 +479,6 @@ input[type="number"]:focus{
   animation-delay: calc(var(--i) * 70ms);
 }
 
-/* subtle color accent */
 .groupCard::before{
   content:"";
   position:absolute;
@@ -519,7 +514,6 @@ input[type="number"]:focus{
   color: rgba(255,255,255,.94);
 }
 
-/* badge same style as app */
 .badge{
   display:inline-flex;
   align-items:center;
@@ -576,9 +570,7 @@ input[type="number"]:focus{
   flex: 0 0 auto;
 }
 
-/* ===============================
-   REMOVE BUTTONS (NEW)
-   =============================== */
+
 
 .removeGroupBtn,
 .removeStudentBtn{
@@ -613,9 +605,7 @@ input[type="number"]:focus{
   }
 }
 
-/* =========================================================
-   NICE SCROLLBAR (optional)
-   ========================================================= */
+
 textarea::-webkit-scrollbar{ width: 10px; }
 textarea::-webkit-scrollbar-track{ background: transparent; }
 textarea::-webkit-scrollbar-thumb{
